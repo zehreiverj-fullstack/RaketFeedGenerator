@@ -30,14 +30,9 @@ def parse(products: dict) -> list:
         name = product["attributes"]["name"]
         description = re.sub(r'free shipping', 'no cost delivery', product["attributes"]["description"], flags=re.IGNORECASE|re.DOTALL)
         price = default_variant["attributes"]["price"]
-        merchant_category = "digital"
         url = f"{FRONTEND_URL}{raketeer['attributes']['username']}/products/{slug}"
         image_url = media[0]["attributes"]["url"]
-        manufacturer = "raket.ph"
         manufacturer_part_number = id + price
-        brand = "raket.ph"
-        condition = "new"
-        availability = "in stock"
         
         parsed_products.append(
             {
@@ -46,14 +41,14 @@ def parse(products: dict) -> list:
                 "Name": name,
                 "Description": description,
                 "Price": price,
-                "Merchant Category": merchant_category,
+                "Merchant Category": "digital",
                 "URL": url,
                 "Image URL": image_url,
-                "Manufacturer": manufacturer,
+                "Manufacturer": "raket.ph",
                 "Manufacturer Part Number": manufacturer_part_number,
-                "Brand": brand,
-                "Condition": condition,
-                "Availability": availability
+                "Brand": "raket.ph",
+                "Condition": "new",
+                "Quantity": 1
             }
         )
 
