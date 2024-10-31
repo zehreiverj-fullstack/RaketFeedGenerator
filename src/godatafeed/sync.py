@@ -5,6 +5,8 @@ import requests
 load_dotenv()
 
 GODATAFEED_URL = os.getenv("GODATAFEED_URL")
+if not GODATAFEED_URL:
+    raise Exception("GODATAFEED_URL not set")
 
 
 def sync(file_path: str) -> None:
